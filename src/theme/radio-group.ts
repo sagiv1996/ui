@@ -101,18 +101,19 @@ export default (options: Required<ModuleOptions>) => ({
     { size: 'lg', variant: 'card', class: { item: 'p-4', fieldset: 'gap-3.5' } },
     { size: 'xl', variant: 'card', class: { item: 'p-4.5', fieldset: 'gap-3.5' } },
 
-    ...(options.theme.colors || []).map((color: string) => [color, {
+    ...(options.theme.colors || []).map((color: string) => ({
       color,
       variant: 'card',
       class: {
         item: `data-[checked=true]:border-[var(--ui-${color})]`
       }
-    }]),
+    })),
+
     {
       color: 'neutral',
       variant: 'card',
       class: {
-        item: 'data-[checked=true]:border-[var(--ui-border-elevated)]'
+        item: 'data-[checked=true]:border-[var(--ui-border-inverted)]'
       }
     }
   ],
